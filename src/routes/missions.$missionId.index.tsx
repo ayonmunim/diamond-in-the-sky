@@ -17,7 +17,7 @@ export const Route = createFileRoute("/missions/$missionId/")({
     <div className="flex min-h-dvh items-center justify-center text-white">Mission not found.</div>
   ),
   errorComponent: ({ error }) => (
-    <div className="flex min-h-dvh items-center justify-center text-white">{error.message}</div>
+    <div className="flex min-h-dvh items-center justify-center text-white">{error instanceof Error ? error.message : "Unable to load this page."}</div>
   ),
   component: MissionDetail,
 });

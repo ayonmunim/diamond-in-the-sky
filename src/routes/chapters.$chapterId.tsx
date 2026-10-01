@@ -41,7 +41,7 @@ export const Route = createFileRoute("/chapters/$chapterId")({
     <div className="flex min-h-dvh items-center justify-center text-white">Chapter not found.</div>
   ),
   errorComponent: ({ error }) => (
-    <div className="flex min-h-dvh items-center justify-center text-white">{error.message}</div>
+    <div className="flex min-h-dvh items-center justify-center text-white">{error instanceof Error ? error.message : "Unable to load this page."}</div>
   ),
   component: ChapterPage,
 });

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/friends/$friendId")({
     return { friend: f };
   },
   notFoundComponent: () => <div className="flex min-h-dvh items-center justify-center text-white">Friend not found.</div>,
-  errorComponent: ({ error }) => <div className="flex min-h-dvh items-center justify-center text-white">{error.message}</div>,
+  errorComponent: ({ error }) => <div className="flex min-h-dvh items-center justify-center text-white">{error instanceof Error ? error.message : "Unable to load this page."}</div>,
   component: FriendGalaxy,
 });
 

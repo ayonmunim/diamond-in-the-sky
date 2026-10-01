@@ -83,7 +83,8 @@ export function UniverseExplorer() {
       travel += Math.abs(last - y);
       if (e.touches.length > 1) {
         const next = distance(e);
-        if (gap !== null) setZ((v) => v + Math.log(Math.max(1, gap) / Math.max(1, next)) * 2);
+        const previousGap = gap;
+        if (previousGap !== null) setZ((v) => v + Math.log(Math.max(1, previousGap) / Math.max(1, next)) * 2);
         gap = next;
         moved.current = true;
       } else {

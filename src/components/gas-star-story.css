@@ -1,0 +1,319 @@
+.gas-story {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #090a20;
+  border: 1px solid #8d9cd755;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #f0f4ff;
+}
+.gas-story header,
+.gas-story footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  font-size: 11px;
+  background: #171c35;
+}
+.gas-story button {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+.gas-story button:focus-visible {
+  outline: 3px solid #ffe08c;
+  outline-offset: 3px;
+}
+.gas-story button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.gas-story header button,
+.bang-controls button,
+.gas-gravity {
+  padding: 9px 13px;
+  border: 1px solid #b2caff60;
+  border-radius: 18px;
+  background: #292d54;
+  color: #fff;
+}
+.gas-space {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 55%, #45306a, #08152e 55%, #06091a);
+}
+.gas-stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 25px 40px, #fff 95%, transparent),
+    radial-gradient(2px 2px at 100px 70px, #9de0ff 60%, transparent);
+  background-size:
+    143px 111px,
+    269px 239px;
+  pointer-events: none;
+}
+.gas-title {
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  font-size: clamp(12px, 2vw, 22px);
+  z-index: 2;
+}
+.gas-bowl {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  width: clamp(100px, 23vh, 220px);
+  aspect-ratio: 1;
+  border: 2px dashed #b6d7ff77;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(#8b9beb66, transparent 70%);
+}
+.gas-collected {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #8091de99;
+  box-shadow: 0 0 30px #bab9ff;
+  font-size: 19px;
+}
+.gas-choice {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: clamp(62px, 12vh, 110px);
+  aspect-ratio: 1;
+  border: 2px solid;
+  border-radius: 50%;
+  background: radial-gradient(#263557, #101528);
+  box-shadow: 0 0 28px #819cea44;
+  display: grid;
+  place-content: center;
+  z-index: 3;
+}
+.gas-choice strong {
+  font-size: clamp(21px, 4vh, 35px);
+}
+.gas-choice small {
+  font: 11px system-ui;
+  color: white;
+}
+.gas-orbit {
+  position: absolute;
+  inset: -7px;
+  border: 1px solid #b5d5ff55;
+  border-radius: 50%;
+  transform: rotate(-25deg) scaleY(0.55);
+  pointer-events: none;
+}
+.gas-nova {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70%, 650px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+}
+.gas-nova button {
+  flex: none;
+  width: 58px;
+  height: 70px;
+}
+.gas-nova p {
+  font: clamp(11px, 1.7vh, 15px)/1.4 system-ui;
+  background: #10162eee;
+  padding: 9px 13px;
+  border-radius: 16px;
+  border: 1px solid #a2b9ee44;
+}
+.gas-gravity {
+  position: absolute;
+  left: 50%;
+  top: 67%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: 11px;
+}
+.gas-hot-core {
+  position: absolute;
+  width: 85%;
+  aspect-ratio: 1;
+  background: radial-gradient(#fffbc4, #ffb84f 30%, #ff7d2755 60%, transparent 72%);
+  animation: gas-ignite 4.5s ease-in-out forwards;
+}
+.gas-born-star {
+  position: absolute;
+  font-size: clamp(85px, 24vh, 180px);
+  color: #ffe08b;
+  text-shadow: 0 0 35px #ffa546;
+  background: none;
+  border: 0;
+  line-height: 1;
+}
+.gas-born-star small {
+  display: block;
+  font: 12px system-ui;
+  white-space: nowrap;
+}
+.gas-star .gas-collected {
+  display: none;
+}
+.bang-scene {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width: 1px;
+  height: 1px;
+}
+.bang-scene i {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffe5ae;
+  box-shadow: 0 0 12px #ffcd70;
+  animation: gas-expand 9s ease-out infinite;
+}
+.bang-glow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(#fff5c4, #ffad4077, transparent 70%);
+  animation: gas-ignite 9s ease-out infinite;
+}
+.bang-scene-1 i {
+  background: #b6dcff;
+}
+.bang-scene-2 i {
+  width: 24px;
+  height: 24px;
+  background: #b39cea99;
+  filter: blur(3px);
+}
+.bang-captions {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 70px;
+  text-align: center;
+  padding: 12px;
+  background: #080c22cc;
+  border-radius: 20px;
+}
+.bang-captions small {
+  color: #ffe09d;
+  font: 13px system-ui;
+}
+.bang-captions h2 {
+  font-size: clamp(17px, 3vw, 30px);
+  margin: 6px;
+}
+.bang-captions p {
+  font: clamp(12px, 1.8vh, 17px)/1.4 system-ui;
+  max-width: 700px;
+  margin: auto;
+}
+.bang-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font: 12px system-ui;
+}
+.gas-story footer {
+  font: 10px system-ui;
+  color: #adbbd5;
+}
+.gas-story footer a {
+  white-space: nowrap;
+}
+@keyframes gas-expand {
+  from {
+    opacity: 0.2;
+    translate: 0 0;
+    scale: 0.2;
+  }
+  to {
+    opacity: 1;
+    scale: 1.2;
+  }
+}
+@keyframes gas-ignite {
+  from {
+    scale: 0.35;
+    opacity: 0.5;
+  }
+  to {
+    scale: 1.1;
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gas-story * {
+    animation: none !important;
+  }
+}
+@media (max-height: 500px) {
+  .gas-story header {
+    padding: 4px 12px;
+  }
+  .gas-story footer {
+    padding: 4px 10px;
+  }
+  .gas-nova {
+    width: 62%;
+    bottom: 0;
+  }
+  .gas-nova button {
+    width: 40px;
+    height: 49px;
+  }
+  .gas-nova p {
+    padding: 5px 8px;
+    margin: 3px 0;
+  }
+  .gas-choice {
+    width: 56px;
+  }
+  .gas-gravity {
+    top: 64%;
+    padding: 7px;
+  }
+  .bang-captions {
+    bottom: 50px;
+    padding: 8px;
+  }
+  .bang-controls {
+    bottom: 7px;
+    gap: 5px;
+    font-size: 10px;
+  }
+  .bang-controls button {
+    padding: 7px;
+  }
+  .gas-title {
+    top: 7px;
+    font-size: 12px;
+  }
+}

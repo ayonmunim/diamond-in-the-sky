@@ -1,0 +1,231 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-nebula: var(--nebula);
+  --color-cosmos: var(--cosmos);
+  --color-starlight: var(--starlight);
+  --color-pink: var(--pink);
+  --color-turquoise: var(--turquoise);
+  --font-display: "Baloo 2", "Fredoka", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Nunito", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1.25rem;
+  /* Deep space cartoon palette */
+  --background: oklch(0.07 0.02 275);
+  --foreground: oklch(0.98 0.01 270);
+  --card: oklch(0.22 0.07 280 / 0.55);
+  --card-foreground: oklch(0.98 0.01 270);
+  --popover: oklch(0.20 0.06 280);
+  --popover-foreground: oklch(0.98 0.01 270);
+  --primary: oklch(0.74 0.18 265);
+  --primary-foreground: oklch(0.12 0.04 270);
+  --secondary: oklch(0.30 0.10 285 / 0.6);
+  --secondary-foreground: oklch(0.98 0.01 270);
+  --muted: oklch(0.27 0.06 275 / 0.5);
+  --muted-foreground: oklch(0.82 0.04 270);
+  --accent: oklch(0.70 0.24 315);
+  --accent-foreground: oklch(0.98 0.01 270);
+  --destructive: oklch(0.68 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 0);
+  --border: oklch(0.88 0.05 270 / 0.18);
+  --input: oklch(0.88 0.05 270 / 0.18);
+  --ring: oklch(0.74 0.18 265);
+  --gold: oklch(0.88 0.16 88);
+  --nebula: oklch(0.62 0.26 315);
+  --cosmos: oklch(0.48 0.22 265);
+  --starlight: oklch(0.98 0.02 100);
+  --pink: oklch(0.78 0.18 350);
+  --turquoise: oklch(0.82 0.14 195);
+
+  --gradient-cosmos: radial-gradient(ellipse at 20% 0%, oklch(0.24 0.14 310) 0%, oklch(0.11 0.06 275) 38%, oklch(0.04 0.01 270) 82%);
+  --gradient-aurora: linear-gradient(135deg, oklch(0.70 0.24 315), oklch(0.72 0.20 230), oklch(0.82 0.14 195));
+  --gradient-gold: linear-gradient(135deg, oklch(0.92 0.14 95), oklch(0.78 0.20 60));
+  --gradient-nebula: radial-gradient(circle at 30% 30%, oklch(0.78 0.18 350 / 0.7), oklch(0.50 0.24 305 / 0.5) 45%, transparent 75%);
+  --gradient-portal: radial-gradient(circle at 50% 50%, oklch(0.98 0.10 95 / 0.95), oklch(0.74 0.22 305 / 0.7) 45%, oklch(0.45 0.22 265 / 0.4) 80%);
+  --shadow-glow: 0 0 40px oklch(0.74 0.18 265 / 0.55);
+  --shadow-glow-pink: 0 0 50px oklch(0.78 0.18 350 / 0.5);
+  --shadow-glow-gold: 0 0 50px oklch(0.88 0.16 88 / 0.55);
+  --shadow-star: 0 0 12px oklch(0.95 0.10 90 / 0.9), 0 0 28px oklch(0.85 0.14 85 / 0.5);
+  --shadow-card: 0 8px 32px oklch(0.05 0.02 270 / 0.6), inset 0 1px 0 oklch(1 0 0 / 0.08);
+  --shadow-bubble: 0 12px 40px oklch(0.05 0.02 270 / 0.55), inset 0 2px 0 oklch(1 0 0 / 0.25);
+}
+
+.dark { color-scheme: dark; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background: var(--background); color: var(--foreground); font-family: var(--font-body); }
+  body {
+    background-image: var(--gradient-cosmos);
+    background-attachment: fixed;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; font-weight: 600; }
+  button { -webkit-tap-highlight-color: transparent; }
+}
+
+@utility glass {
+  background: oklch(0.22 0.07 280 / 0.45);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 0.12);
+  box-shadow: var(--shadow-card);
+}
+
+@utility glass-strong {
+  background: oklch(0.24 0.08 280 / 0.7);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid oklch(1 0 0 / 0.14);
+  box-shadow: var(--shadow-card);
+}
+
+@utility bubble {
+  background: linear-gradient(180deg, oklch(0.32 0.10 280 / 0.85), oklch(0.18 0.08 275 / 0.85));
+  backdrop-filter: blur(18px);
+  border: 2px solid oklch(1 0 0 / 0.18);
+  box-shadow: var(--shadow-bubble);
+  border-radius: 9999px;
+}
+
+@utility text-gradient-aurora {
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-candy {
+  background: linear-gradient(135deg, oklch(0.78 0.18 350), oklch(0.82 0.14 195), oklch(0.92 0.14 95));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-primary { box-shadow: var(--shadow-glow); }
+@utility glow-pink { box-shadow: var(--shadow-glow-pink); }
+@utility glow-gold { box-shadow: var(--shadow-glow-gold); }
+
+@utility star-glow {
+  filter: drop-shadow(0 0 6px oklch(0.95 0.10 90 / 0.95)) drop-shadow(0 0 18px oklch(0.85 0.14 85 / 0.55));
+}
+
+@utility no-square { border-radius: 1.5rem; }
+
+/* Cartoon comic outline for chunky headings (NatGeo-Kids style) */
+@utility toon-text {
+  -webkit-text-stroke: 3px oklch(0.15 0.05 285);
+  paint-order: stroke fill;
+  text-shadow: 0 4px 0 oklch(0.15 0.05 285);
+}
+
+@utility toon-card {
+  border: 4px solid oklch(0.15 0.05 285);
+  box-shadow: 0 6px 0 oklch(0.15 0.05 285), 0 14px 30px oklch(0 0 0 / 0.55);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-14px) translateX(8px); }
+}
+@keyframes float-deep {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-26px); }
+}
+@keyframes orbit-1 {
+  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 22px oklch(0.74 0.18 265 / 0.45), 0 0 50px oklch(0.70 0.24 315 / 0.2); }
+  50% { box-shadow: 0 0 45px oklch(0.74 0.18 265 / 0.75), 0 0 90px oklch(0.70 0.24 315 / 0.45); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes portal-in {
+  0% { transform: scale(0.4); opacity: 0; filter: blur(8px); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes sparkle-burst {
+  0% { transform: scale(0) rotate(0); opacity: 1; }
+  100% { transform: scale(2.2) rotate(180deg); opacity: 0; }
+}
+@keyframes drift-x {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+@keyframes blink-eyes {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-float-deep { animation: float-deep 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-bob { animation: bob 3s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 1.6s ease-in-out infinite; }
+.animate-pop { animation: pop 0.5s cubic-bezier(.34,1.56,.64,1) forwards; }
+.animate-portal-in { animation: portal-in 0.6s cubic-bezier(.34,1.56,.64,1) forwards; }
+.animate-blink-eyes { animation: blink-eyes 5s ease-in-out infinite; }
+.animate-ring-rotate { animation: ring-rotate 18s linear infinite; }

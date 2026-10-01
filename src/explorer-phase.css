@@ -1,0 +1,231 @@
+.universe-explorer {
+  isolation: isolate;
+  background: #03030c !important;
+}
+@media (max-height: 500px) {
+  .universe-explorer nav[aria-label="Astronomical scales"] {
+    display: none !important;
+  }
+}
+.explorer-stars {
+  position: absolute;
+  inset: -5%;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(1px 1px at 21px 35px, #fff 80%, transparent),
+    radial-gradient(2px 2px at 100px 110px, #8fdcff 60%, transparent),
+    radial-gradient(1px 1px at 170px 70px, #c6abff 80%, transparent);
+  background-size:
+    213px 187px,
+    379px 307px,
+    293px 251px;
+}
+.explorer-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mask-image: radial-gradient(ellipse closest-side, #000 80%, transparent 100%);
+  user-select: none;
+  pointer-events: none;
+}
+.explorer-object > span:first-child {
+  filter: none !important;
+}
+.explorer-object {
+  mix-blend-mode: screen;
+  min-width: 44px;
+  min-height: 44px;
+}
+.explorer-object:hover .explorer-photo {
+  filter: brightness(1.2);
+}
+.explorer-readout {
+  top: 76px !important;
+}
+.explorer-mission {
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  z-index: 20;
+  width: 225px;
+  padding: 14px;
+  border: 1px solid #b3a6ff38;
+  border-radius: 18px;
+  background: #121027bb;
+  backdrop-filter: blur(16px);
+}
+.explorer-mission p {
+  font:
+    13px/1.5 system-ui,
+    sans-serif;
+  color: #c8c7df;
+  margin: 6px 0;
+}
+.explorer-mission strong {
+  font-size: 11px;
+  color: #ffe29a;
+}
+.explorer-mission progress {
+  width: 100%;
+  height: 5px;
+  accent-color: #a6f5e4;
+}
+.explorer-mission button {
+  font:
+    12px system-ui,
+    sans-serif;
+  padding: 6px 10px;
+  background: #ffffff12;
+  border-radius: 12px;
+  color: white;
+}
+.explorer-credit {
+  font:
+    11px/1.5 system-ui,
+    sans-serif;
+  color: #aaa9c1;
+  margin-top: 12px;
+}
+.explorer-stat {
+  border: 1px solid #ae92ff55;
+  box-shadow: inset 0 0 20px #8b5cf615;
+}
+.comparison-launch {
+  position: absolute;
+  top: 18px;
+  left: 130px;
+  z-index: 21;
+  border: 1px solid #ffffff30;
+  background: #161126;
+  color: #ffe29a;
+  border-radius: 20px;
+  padding: 9px 15px;
+  font-size: 11px;
+}
+.planet-comparison {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 90% 0%, #842904 0%, #270c26 35%, #030613 75%);
+  color: white;
+}
+.planet-comparison header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 65px 5vw 10px;
+  gap: 20px;
+}
+.planet-comparison header p {
+  color: #eedbca;
+  font: 14px/1.5 system-ui;
+}
+.planet-comparison h2 {
+  font: 700 clamp(24px, 5vw, 64px)/1.05 system-ui;
+  margin: 8px 0;
+}
+.planet-comparison small {
+  font: 11px/1.5 system-ui;
+  color: #bcb5c9;
+}
+.planet-comparison header button {
+  border: 1px solid #ffffff30;
+  border-radius: 22px;
+  padding: 10px 16px;
+  font-size: 11px;
+}
+.comparison-worlds {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  overflow: auto;
+  padding: 30px 5vw 45px;
+}
+.comparison-target {
+  flex: none;
+  min-width: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.comparison-target strong {
+  font: 12px system-ui;
+}
+.comparison-disk {
+  display: block;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px #ffffff55,
+    0 0 25px #8a9de326;
+}
+.comparison-disk img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.planet-comparison footer {
+  padding: 10px 15px 20px;
+  text-align: center;
+  font: 12px/1.6 system-ui;
+  background: #040510aa;
+}
+.planet-comparison footer label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.planet-comparison footer input {
+  width: min(50vw, 350px);
+  accent-color: #ffd779;
+}
+@media (max-height: 500px) {
+  .planet-comparison header {
+    padding-top: 12px;
+    padding-left: 140px;
+  }
+  .planet-comparison h2 {
+    font-size: 26px;
+  }
+  .planet-comparison header small {
+    display: none;
+  }
+  .planet-comparison footer {
+    padding: 4px;
+  }
+}
+@media (max-width: 700px), (max-height: 500px) {
+  .explorer-readout {
+    top: 66px !important;
+    max-width: 190px !important;
+  }
+  .explorer-readout p:nth-child(2) {
+    font-size: 22px;
+  }
+  .explorer-readout p:nth-child(4) {
+    display: none;
+  }
+  .explorer-mission {
+    top: 65px;
+    right: 12px;
+    width: 168px;
+    padding: 9px;
+  }
+  .explorer-mission p {
+    font-size: 11px;
+  }
+  .explorer-object > span:last-child {
+    font-size: 10px;
+    padding: 3px 7px;
+  }
+}

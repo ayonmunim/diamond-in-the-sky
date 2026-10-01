@@ -1,0 +1,427 @@
+@font-face {
+  font-family: Pixelify;
+  src: url("./assets/pixelify-sans.ttf") format("truetype");
+  font-weight: 400 700;
+  font-display: swap;
+}
+body,
+button,
+input,
+select,
+textarea,
+.font-display,
+.font-body {
+  font-family: Pixelify, system-ui, sans-serif;
+}
+.journey-nova {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 35;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  pointer-events: none;
+}
+.journey-nova button {
+  width: 68px;
+  height: 105px;
+  pointer-events: auto;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.journey-nova p {
+  max-width: 260px;
+  background: #172641f5;
+  border: 1px solid #adccfa55;
+  padding: 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  color: white;
+  pointer-events: auto;
+}
+.nova-sprite {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.nova-sprite img {
+  width: 100%;
+  height: calc(100% - 20px);
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px #71bdff50);
+}
+.nova-name {
+  font:
+    700 12px Pixelify,
+    sans-serif;
+  letter-spacing: 0.15em;
+  color: #fff1b7;
+  background: #101a38c9;
+  border: 1px solid #aed0ff55;
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+.landscape-guide {
+  display: none;
+}
+.landscape-fullscreen {
+  position: fixed;
+  z-index: 45;
+  left: 74px;
+  top: 16px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ccdfff40;
+  border-radius: 50%;
+  background: #14203acc;
+  color: white;
+}
+.level-viewport {
+  position: fixed;
+  inset: 0;
+  padding: 68px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.level-play {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+.level-play .orbit-lab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 16px;
+}
+.level-play .orbit-top {
+  flex: none;
+  padding: 9px 18px;
+}
+.level-play .orbit-score {
+  gap: 4px;
+}
+.level-play .orbit-world {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  overflow: clip;
+}
+.level-play .orbit-bottom {
+  flex: none;
+  padding: 6px 16px;
+}
+.level-play .orbit-astronaut {
+  animation: none;
+  transform: none;
+  width: 82px;
+  height: 118px;
+  bottom: 55px;
+  right: 16px;
+  pointer-events: auto;
+  background: transparent;
+  border: 0;
+}
+.level-play .orbit-instruction {
+  font-size: 15px;
+}
+.level-play .orbit-help {
+  max-height: calc(100% - 105px);
+  overflow: auto;
+}
+.level-reward {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.home-viewport {
+  position: fixed !important;
+  inset: 0;
+  min-height: 0 !important;
+  height: 100dvh;
+  max-width: none !important;
+  padding: 48px 64px 18px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto auto;
+  gap: 8px;
+  overflow: hidden;
+}
+.home-viewport > div:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+.home-viewport > div:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2/4;
+  min-height: 0;
+}
+.home-viewport > div:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1/3;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
+}
+.home-viewport > div:nth-child(4) {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: center;
+  margin: 0;
+}
+.home-viewport > div:nth-child(5) {
+  grid-column: 1/3;
+  grid-row: 4;
+  margin: 0;
+}
+.home-viewport h1 {
+  font-size: clamp(24px, 5.5vh, 58px);
+}
+.home-viewport > div:nth-child(2) > div {
+  height: 100%;
+  max-height: 300px;
+}
+.home-viewport > div:nth-child(2) > div > div {
+  height: 100% !important;
+  width: clamp(100px, 24vh, 240px) !important;
+}
+.home-viewport .nova-name {
+  font-size: 16px;
+}
+.home-viewport > div:nth-child(3) a > div:first-of-type {
+  width: clamp(110px, 28vh, 240px) !important;
+  height: clamp(110px, 28vh, 240px) !important;
+}
+.home-viewport > div:nth-child(4) > a {
+  padding: 8px;
+  gap: 8px;
+}
+.phase-light .orbit-core {
+  left: 30%;
+  background: radial-gradient(circle, #ffd372, #f7894144 40%, transparent 70%);
+  border-radius: 50%;
+}
+.phase-light .orbit-target-ring {
+  left: 80%;
+  border-color: #ffe191;
+}
+.phase-star .orbit-core {
+  opacity: 0;
+}
+.orbit-object.photon {
+  background: radial-gradient(circle, #fffbd4, #ffd369 40%, #f8903930 65%, transparent);
+  border: none;
+  color: #fff4c5;
+  box-shadow: 0 0 18px #ffbc74;
+  width: 52px;
+  height: 52px;
+}
+.orbit-light-path {
+  position: absolute;
+  left: 32%;
+  top: 50%;
+  width: 46%;
+  border-top: 2px dashed #f4d08760;
+  pointer-events: none;
+}
+@media (max-height: 550px) and (orientation: landscape) {
+  .level-reward > div {
+    zoom: 0.52;
+  }
+  .level-viewport {
+    padding-top: 80px;
+  }
+  .level-play .orbit-top {
+    padding: 4px 14px;
+  }
+  .level-play .orbit-score {
+    display: flex;
+    gap: 20px;
+  }
+  .level-play .orbit-pixel {
+    width: 70px;
+    height: 13px;
+  }
+  .level-play .orbit-stars {
+    font-size: 15px;
+    gap: 3px;
+  }
+  .level-play .orbit-score > div {
+    gap: 7px;
+  }
+  .level-play .orbit-tools button {
+    height: 32px;
+    width: 34px;
+  }
+  .level-play .orbit-caption {
+    top: 8px;
+    left: 16px;
+  }
+  .level-play .orbit-chapter {
+    display: none;
+  }
+  .level-play .orbit-caption h2 {
+    font-size: 14px;
+  }
+  .level-play .orbit-target-ring {
+    width: 120px;
+    height: 120px;
+  }
+  .level-play .orbit-core {
+    width: 90px;
+    height: 90px;
+  }
+  .level-play .orbit-object.cloud {
+    height: 65px;
+    width: 86px;
+  }
+  .level-play .orbit-object.atom {
+    width: 44px;
+    height: 44px;
+  }
+  .level-play .orbit-drop-target {
+    width: 90px;
+    height: 90px;
+  }
+  .level-play .orbit-new-star {
+    width: 115px;
+    height: 115px;
+  }
+  .level-play .orbit-instruction {
+    bottom: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+  .level-play .orbit-astronaut {
+    height: 84px;
+    width: 64px;
+    bottom: 36px;
+  }
+  .level-play .orbit-bottom {
+    font-size: 11px;
+    padding: 3px 12px;
+  }
+  .level-play .orbit-bottom small,
+  .level-play .orbit-model {
+    font-size: 9px;
+  }
+  .home-viewport {
+    padding-top: 36px !important;
+    padding-bottom: 8px !important;
+  }
+  .home-viewport > div:nth-child(2) {
+    grid-row: 2/4;
+  }
+  .home-viewport > div:nth-child(2) > div {
+    max-height: 145px;
+  }
+  .home-viewport > div:nth-child(4) > a > span:first-child {
+    display: none;
+  }
+  .home-viewport > div:nth-child(5) {
+    font-size: 8px;
+  }
+  .home-viewport > div:nth-child(1) p {
+    font-size: 10px;
+  }
+}
+@media (orientation: portrait) and (max-width: 1100px) {
+  .landscape-guide {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 30px;
+    text-align: center;
+    background: radial-gradient(ellipse at center, #29275a, #080e24 70%);
+    color: white;
+  }
+  .landscape-guide .nova-sprite {
+    height: 190px;
+    width: 155px;
+  }
+  .landscape-guide h2 {
+    font-size: 30px;
+  }
+  .landscape-guide p {
+    max-width: 330px;
+  }
+  .landscape-guide button {
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: #ffdf89;
+    color: #17203b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .landscape-guide .portrait-option {
+    background: transparent;
+    color: #baccdf;
+    border: 1px solid #baccdf55;
+  }
+  .home-viewport {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.3fr 1.2fr auto auto;
+    padding: 45px 50px 12px !important;
+  }
+  .home-viewport > div:nth-child(n) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .home-viewport > div:nth-child(2) > div {
+    max-height: 155px;
+  }
+  .home-viewport > div:nth-child(3) a > div:first-of-type {
+    width: 135px !important;
+    height: 135px !important;
+  }
+  .home-viewport h1 {
+    font-size: 28px;
+  }
+  .home-viewport > div:nth-child(4) > a {
+    padding: 8px 5px;
+    font-size: 11px;
+  }
+  .home-viewport > div:nth-child(4) > a > span:first-child {
+    display: none;
+  }
+  .home-viewport > div:nth-child(5) {
+    font-size: 8px;
+  }
+  .level-play .orbit-astronaut {
+    width: 62px;
+    height: 92px;
+  }
+  .level-play .orbit-instruction {
+    font-size: 12px;
+  }
+  .level-play .orbit-model {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nova-sprite img {
+    animation: none;
+  }
+}
